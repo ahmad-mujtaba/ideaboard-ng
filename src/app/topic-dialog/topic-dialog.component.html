@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Enter a topic</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Topic</mat-label>
+    <input matInput [(ngModel)]="topicText">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="topicText" cdkFocusInitial>Add Topic</button>
+</div>
