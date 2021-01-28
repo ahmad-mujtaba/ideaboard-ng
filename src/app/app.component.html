@@ -1,0 +1,25 @@
+<app-header></app-header>
+<div class='content'>
+  <div class='topic' *ngFor='let topic of topics'>
+    <h2 class='topic-title'>
+      {{topic.title}}
+    </h2>
+    <div class='topic-notes-container'>
+      <div class='topic-note' *ngFor='let note of topic.notes' [data-id]='note.id'>
+        {{note.text}}
+
+        <div class='note-meta' align='end'>
+          <button mat-icon-button (click)='deleteNote(note.id, topic)'>
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+      <button mat-raised-button color="accent" (click)='addNote(topic);'>Add Note</button>
+    </div>
+  </div>
+  <div class='topic'>
+    <button mat-raised-button color="primary" class='add-topic' (click)='addTopic()'>Add Topic</button>
+  </div>
+</div>
+<app-footer></app-footer>
+<router-outlet></router-outlet>
